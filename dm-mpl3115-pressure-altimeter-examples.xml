@@ -1,0 +1,29 @@
+<data:item xmlns:data="data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data ../../xsd/alp.xsd" id="dm-mpl3115-pressure-altimeter-examples" type="demo" format="projectfile" versionSchema="1.0.0" name="mpl3115 pressure altimeter examples">
+    <display_title>
+        Pressure and Altimeter Examples using MPL3115 Sensor
+    </display_title>
+    <overview>
+        <![CDATA[This example demo describes how to configure absolute pressure sensor MPL3115 for pressure and altimeter mode. This sensor can find use in many industrial, medical applications.]]>
+    </overview>
+    <toolchains>
+        <toolchain name="mcux"></toolchain>
+    </toolchains>
+    <families>
+        <family name="mcx"></family>
+    </families>
+    <nxp_compatible_hw>
+        <hw id="FRDM-MCXN947"></hw>
+    </nxp_compatible_hw>
+    <nxp_ebh_hw>
+        <ebh id="nxp_frdmstbc_p3115"></ebh>
+        <ebh id="mikroe_accel_pressure_click"></ebh>
+    </nxp_ebh_hw>
+    <peripherals>
+        <peripheral name="i2c"></peripheral>
+        <peripheral name="uart"></peripheral>
+    </peripherals>
+    <categories>
+        <category name="sensor"></category>
+        <category name="low_power"></category>
+    </categories>
+</data:item>

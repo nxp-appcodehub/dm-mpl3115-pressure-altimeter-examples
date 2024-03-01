@@ -1,0 +1,7 @@
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_clock.h:1511:20:CLOCK_EnableClock	24	static
+../board/clock_config.c:53:6:BOARD_InitBootClocks	8	static
+../board/clock_config.c:90:6:BOARD_BootClockFRO12M	8	static
+../board/clock_config.c:137:6:BOARD_BootClockFROHF48M	8	static
+../board/clock_config.c:191:6:BOARD_BootClockFROHF144M	8	static
+../board/clock_config.c:250:6:BOARD_BootClockPLL150M	40	static
+../board/clock_config.c:322:6:BOARD_BootClockPLL100M	40	static

@@ -1,0 +1,6 @@
+../utilities/systick_utils.c:28:6:SysTick_Handler	4	static
+../utilities/systick_utils.c:35:6:BOARD_SystickEnable	4	static
+../utilities/systick_utils.c:44:6:BOARD_SystickStart	16	static
+../utilities/systick_utils.c:52:9:BOARD_SystickElapsedTicks	24	static
+../utilities/systick_utils.c:64:10:BOARD_SystickElapsedTime_us	80	static
+../utilities/systick_utils.c:81:6:BOARD_DELAY_ms	72	static

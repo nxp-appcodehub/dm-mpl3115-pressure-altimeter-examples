@@ -1,0 +1,17 @@
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\CMSIS/core_cm33.h:2378:22:__NVIC_EnableIRQ	16	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_clock.h:1511:20:CLOCK_EnableClock	24	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_common_arm.h:499:24:EnableIRQ	24	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_gpio.h:328:20:GPIO_PinWrite	24	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_gpio.h:357:20:GPIO_PortSet	16	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_gpio.h:372:20:GPIO_PortClear	16	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_gpio.h:387:20:GPIO_PortToggle	16	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_gpio.h:410:24:GPIO_PinRead	16	static
+C:\Users\nxa11926\Documents\MCUXpressoIDE_11.9.0_2089_prc1\MCX_ACH_Github\frdmmcxn947_mpl3115_shield_pressure\drivers/fsl_gpio.h:464:20:GPIO_SetPinInterruptConfig	24	static
+../gpio_driver/gpio_driver.c:42:24:ksdk_gpio_get_version	16	static
+../gpio_driver/gpio_driver.c:53:6:ksdk_gpio_pin_init	32	static
+../gpio_driver/gpio_driver.c:93:6:ksdk_gpio_set_pin	24	static
+../gpio_driver/gpio_driver.c:105:6:ksdk_gpio_clr_pin	24	static
+../gpio_driver/gpio_driver.c:117:6:ksdk_gpio_toggle_pin	24	static
+../gpio_driver/gpio_driver.c:129:6:ksdk_gpio_write_pin	24	static
+../gpio_driver/gpio_driver.c:141:10:ksdk_gpio_read_pin	24	static
+../gpio_driver/gpio_driver.c:153:6:ksdk_gpio_handle_interrupt	32	static
