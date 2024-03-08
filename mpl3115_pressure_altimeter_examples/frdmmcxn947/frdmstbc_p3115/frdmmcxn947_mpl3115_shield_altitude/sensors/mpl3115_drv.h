@@ -76,7 +76,7 @@ typedef struct
  *  @return      ::MPL3115_I2C_Initialize() returns the status.
  */
 int32_t MPL3115_I2C_Initialize(
-    mpl3115_i2c_sensorhandle_t *pSensorHandle, ARM_DRIVER_I2C *pBus, uint8_t index, uint16_t sAddress, uint8_t whoAmi);
+    mpl3115_i2c_sensorhandle_t *pSensorHandle, ARM_DRIVER_I2C *pBus, uint8_t index, uint16_t sAddress, uint8_t *whoAmi);
 
 /*! @brief      :  The interface function to set the I2C Idle Task.
  *  @param[in]  :  mpl3115_i2c_sensorhandle_t *pSensorHandle, handle to the sensor handle.

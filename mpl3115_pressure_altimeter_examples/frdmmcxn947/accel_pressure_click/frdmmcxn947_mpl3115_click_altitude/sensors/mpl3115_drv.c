@@ -20,7 +20,7 @@
 // Functions
 //-----------------------------------------------------------------------
 int32_t MPL3115_I2C_Initialize(
-    mpl3115_i2c_sensorhandle_t *pSensorHandle, ARM_DRIVER_I2C *pBus, uint8_t index, uint16_t sAddress, uint8_t whoAmi)
+    mpl3115_i2c_sensorhandle_t *pSensorHandle, ARM_DRIVER_I2C *pBus, uint8_t index, uint16_t sAddress, uint8_t *whoami)
 {
     int32_t status;
     uint8_t reg;
@@ -37,11 +37,17 @@ int32_t MPL3115_I2C_Initialize(
 
     /*!  Read and store the device's WHO_AM_I.*/
     status = Register_I2C_Read(pBus, &pSensorHandle->deviceInfo, sAddress, MPL3115_WHO_AM_I, 1, &reg);
-    if ((ARM_DRIVER_OK != status) || (whoAmi != reg))
-    {
-        pSensorHandle->isInitialized = false;
+    (*whoami) = reg;
+    if (ARM_DRIVER_OK != status)
+	{
+		if ((MPL3115_WHOAMI_VALUE1 != reg) || (MPL3115_WHOAMI_VALUE2 != reg))
+		{
+			pSensorHandle->isInitialized = false;
+			return SENSOR_ERROR_BAD_ADDRESS;
+		}
+		pSensorHandle->isInitialized = false;
         return SENSOR_ERROR_INIT;
-    }
+	}
 
     /*! Initialize the sensor handle. */
     pSensorHandle->pCommDrv = pBus;

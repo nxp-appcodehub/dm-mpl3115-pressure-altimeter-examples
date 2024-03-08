@@ -62,7 +62,8 @@ enum {
 };
 
 #define MPL3115_I2C_ADDRESS     (0x60)  /*MPL3115A2 Address*/
-#define MPL3115_WHOAMI_VALUE    (0xC4)  /*!< Who AM I address. */
+#define MPL3115_WHOAMI_VALUE1   (0xC4)  /*!< Who AM I address. */
+#define MPL3115_WHOAMI_VALUE2   (0xC5)  /*!< Who AM I address. */
 
 
 /*--------------------------------

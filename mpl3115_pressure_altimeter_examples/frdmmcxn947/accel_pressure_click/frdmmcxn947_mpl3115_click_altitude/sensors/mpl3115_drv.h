@@ -69,14 +69,13 @@ typedef struct
  *  @param[in]   pBus           pointer to the CMSIS API compatible I2C bus object.
  *  @param[in]   index          the I2C device number.
  *  @param[in]   sAddress       slave address of the device on the bus.
- *  @param[in]   whoami         WHO_AM_I value of the device.
  *  @constraints This should be the first API to be called.
  *               Application has to ensure that previous instances of these APIs have exited before invocation.
  *  @reeentrant  No
  *  @return      ::MPL3115_I2C_Initialize() returns the status.
  */
 int32_t MPL3115_I2C_Initialize(
-    mpl3115_i2c_sensorhandle_t *pSensorHandle, ARM_DRIVER_I2C *pBus, uint8_t index, uint16_t sAddress, uint8_t whoAmi);
+    mpl3115_i2c_sensorhandle_t *pSensorHandle, ARM_DRIVER_I2C *pBus, uint8_t index, uint16_t sAddress, uint8_t *whoami);
 
 /*! @brief      :  The interface function to set the I2C Idle Task.
  *  @param[in]  :  mpl3115_i2c_sensorhandle_t *pSensorHandle, handle to the sensor handle.

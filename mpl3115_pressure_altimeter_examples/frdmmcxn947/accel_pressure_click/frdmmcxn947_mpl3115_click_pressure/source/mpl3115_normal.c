@@ -72,6 +72,7 @@ int main(void)
     uint32_t pressureInPascals;
     int32_t status;
     uint8_t dataReady;
+    uint8_t whoami;
     uint8_t data[MPL3115_DATA_SIZE];
     mpl3115_pressuredata_t rawData;
 
@@ -109,14 +110,13 @@ int main(void)
     }
 
     /*! Initialize MPL3115 sensor driver. */
-    status = MPL3115_I2C_Initialize(&mpl3115Driver, &I2C_S_DRIVER, I2C_S_DEVICE_INDEX, MPL3115_I2C_ADDR,
-                                    MPL3115_WHOAMI_VALUE);
+    status = MPL3115_I2C_Initialize(&mpl3115Driver, &I2C_S_DRIVER, I2C_S_DEVICE_INDEX, MPL3115_I2C_ADDR, &whoami);
     if (SENSOR_ERROR_NONE != status)
     {
         PRINTF("\r\n Sensor Initialization Failed\r\n");
         return -1;
     }
-    PRINTF("\r\n Successfully Initialized Sensor\r\n");
+    PRINTF("\r\n Successfully Initialized Sensor: WHO_AM_I = 0x%X\r\n", whoami);
 
     /*!  Set the task to be executed while waiting for I2C transactions to complete. */
     MPL3115_I2C_SetIdleTask(&mpl3115Driver, (registeridlefunction_t)SMC_SetPowerModeVlpr, SMC);
