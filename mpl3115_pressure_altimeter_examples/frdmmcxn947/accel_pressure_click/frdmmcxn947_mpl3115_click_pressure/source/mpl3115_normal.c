@@ -36,7 +36,7 @@
 /*! In MPL3115 the Auto Acquisition Time Step (ODR) can be set only in powers of 2 (i.e. 2^x, where x is the
  *  SAMPLING_EXPONENT).
  *  This gives a range of 1 second to 2^15 seconds (9 hours). */
-#define MPL3115_SAMPLING_EXPONENT (1) /* 2 seconds */
+#define MPL3115_SAMPLING_EXPONENT (0) /* 1 second */
 
 //-----------------------------------------------------------------------
 // Constants
@@ -78,6 +78,7 @@ int main(void)
 
     ARM_DRIVER_I2C *I2Cdrv = &I2C_S_DRIVER; // Now using the shield.h value!!!
     mpl3115_i2c_sensorhandle_t mpl3115Driver;
+    GENERIC_DRIVER_GPIO *gpioDriver = &Driver_GPIO_KSDK;
 
     BOARD_InitPins();
     BOARD_BootClockRUN();
@@ -109,6 +110,9 @@ int main(void)
         return -1;
     }
 
+    /*! Initialize RGB LED pin used by FRDM board */
+    gpioDriver->pin_init(&GREEN_LED, GPIO_DIRECTION_OUT, NULL, NULL, NULL);
+
     /*! Initialize MPL3115 sensor driver. */
     status = MPL3115_I2C_Initialize(&mpl3115Driver, &I2C_S_DRIVER, I2C_S_DEVICE_INDEX, MPL3115_I2C_ADDR, &whoami);
     if (SENSOR_ERROR_NONE != status)
@@ -134,6 +138,7 @@ int main(void)
     {
         /*! Wait for data ready from the MPL3115. */
         status = MPL3115_I2C_ReadData(&mpl3115Driver, cMpl3115Status, &dataReady);
+    	gpioDriver->set_pin(&GREEN_LED);
         if (0 == (dataReady & MPL3115_DR_STATUS_PTDR_MASK))
         { /* Loop, if new sample is not available. */
             continue;
@@ -147,6 +152,8 @@ int main(void)
             return -1;
         }
 
+    	gpioDriver->clr_pin(&GREEN_LED);
+
         /*! Process the sample and convert the raw sensor data. */
         rawData.pressure = (uint32_t)((data[0]) << 16) | ((data[1]) << 8) | ((data[2]));
         pressureInPascals = rawData.pressure / MPL3115_PRESSURE_CONV_FACTOR;
@@ -155,7 +162,7 @@ int main(void)
         tempInDegrees = rawData.temperature / MPL3115_TEMPERATURE_CONV_FACTOR;
 
         PRINTF("\r\n Pressure    = %d Pa\r\n", pressureInPascals);
-        PRINTF("\r\n Temperature = %d degC\r\n", tempInDegrees);
-        ASK_USER_TO_RESUME(8); /* Ask for user input after processing 8 samples. */
+        PRINTF("\r\n Temperature = %d degC\r\n\r\n", tempInDegrees);
+        //ASK_USER_TO_RESUME(8); /* Ask for user input after processing 8 samples. */
     }
 }

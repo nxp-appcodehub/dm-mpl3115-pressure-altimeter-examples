@@ -5,11 +5,11 @@
  * Generated linker script file for MCXN947
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.9.0_prc1 [Build 2089] [2023-11-02] on Mar 17, 2024, 8:26:18 PM
+ * MCUXpresso IDE v11.9.0_prc1 [Build 2089] [2023-11-02] on Mar 17, 2024, 8:26:15 PM
  */
 
-INCLUDE "frdmmcxn947_mpl3115_shield_pressure_Debug_library.ld"
-INCLUDE "frdmmcxn947_mpl3115_shield_pressure_Debug_memory.ld"
+INCLUDE "frdmmcxn947_mpl3115_shield_altitude_Debug_library.ld"
+INCLUDE "frdmmcxn947_mpl3115_shield_altitude_Debug_memory.ld"
 
 ENTRY(ResetISR)
 

@@ -36,7 +36,7 @@
 /*! In MPL3115 the Auto Acquisition Time Step (ODR) can be set only in powers of 2 (i.e. 2^x, where x is the
  *  SAMPLING_EXPONENT).
  *  This gives a range of 1 second to 2^15 seconds (9 hours). */
-#define MPL3115_SAMPLING_EXPONENT (1) /* 2 seconds */
+#define MPL3115_SAMPLING_EXPONENT (1) /* 1 second */
 
 //-----------------------------------------------------------------------
 // Constants
@@ -79,12 +79,16 @@ int main(void)
 
     ARM_DRIVER_I2C *I2Cdrv = &I2C_S_DRIVER; // Now using the shield.h value!!!
     mpl3115_i2c_sensorhandle_t mpl3115Driver;
+    GENERIC_DRIVER_GPIO *pGpioDriver = &Driver_GPIO_KSDK;
 
     BOARD_InitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
     PRINTF("\r\n ISSDK MPL3115 sensor driver example demonstration with Altitude mode\r\n");
+
+    /*! Initialize RGB LED pin used by MCX board */
+    pGpioDriver->pin_init(&GREEN_LED, GPIO_DIRECTION_OUT, NULL, NULL, NULL);
 
     /*! Initialize the I2C driver. */
     status = I2Cdrv->Initialize(I2C_S_SIGNAL_EVENT);
@@ -133,6 +137,7 @@ int main(void)
 
     for (;;) /* Forever loop */
     {
+        pGpioDriver->set_pin(&GREEN_LED);
         /*! Wait for data ready from the MPL3115. */
         status = MPL3115_I2C_ReadData(&mpl3115Driver, cMpl3115Status, &dataReady);
         if (0 == (dataReady & MPL3115_DR_STATUS_PTDR_MASK))
@@ -147,7 +152,7 @@ int main(void)
             PRINTF("\r\n Read Failed. \r\n");
             return -1;
         }
-
+        pGpioDriver->clr_pin(&GREEN_LED);
         /*! Process the sample and convert the raw sensor data. */
         rawData.altitude = (int32_t)((data[0]) << 24) | ((data[1]) << 16) | ((data[2]) << 8);
         altitudeInMeters = rawData.altitude / MPL3115_ALTITUDE_CONV_FACTOR;
@@ -156,7 +161,7 @@ int main(void)
         tempInDegrees = rawData.temperature / MPL3115_TEMPERATURE_CONV_FACTOR;
 
         PRINTF("\r\n Altitude    = %d Meters\r\n", altitudeInMeters);
-        PRINTF("\r\n Temperature = %d degC\r\n", tempInDegrees);
-        ASK_USER_TO_RESUME(8); /* Ask for user input after processing 8 samples. */
+        PRINTF("\r\n Temperature = %d degC\r\n\r\n", tempInDegrees);
+        //ASK_USER_TO_RESUME(8); /* Ask for user input after processing 8 samples. */
     }
 }
