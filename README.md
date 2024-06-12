@@ -34,15 +34,15 @@ on earth.
 
 ## 1. Software<a name="step1"></a>
 - IoT Sensing SDK (ISSDK) v1.8 offered as middleware in MCUXpresso SDK for supported platforms (https://nxp.com/iot-sensing-sdk)
-- MCUXpresso SDK v2.13.1 for MCX-N9XX-EVK (https://mcuxpresso.nxp.com/en/select)
-- MCUXpresso IDE v11.9.0
+- [MCXUpresso SDK 2.14.0 for FRDM-MCXN947](https://mcuxpresso.nxp.com/en/builder?hw=FRDM-MCXN947)
+- [MCUXpresso IDE v11.9.0 or newer](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
 - Git v2.39.0
 - Teraterm (https://osdn.net/projects/ttssh2/releases/) or RealTerm (https://sourceforge.net/projects/realterm/)
 
 ## 2. Hardware<a name="step2"></a>
-- FRDM-MCXN947 MCU board
-- FRDMSTBC-P3115 sensor board (https://www.nxp.com/part/FRDMSTBC-P3115) Or
-- Accel&Pressure click board (https://www.mikroe.com/accelpressure-click)
+- [FRDM-MCXN947 MCU board](https://www.nxp.com/part/FRDM-MCXN947)
+- [FRDMSTBC-P3115 shield board](https://www.nxp.com/part/FRDMSTBC-P3115) Or
+- [Accel&Pressure click board](https://www.mikroe.com/accelpressure-click)
 - Personal Computer
 - Mini/micro C USB cable
 
@@ -50,10 +50,10 @@ on earth.
 
 
 ### 3.1 Step 1: Download and Install required Software(s)
-- Install MCUXpresso IDE 2.19.0
-- Download and Install MCXUpresso SDK 2.13.1 for MCX
+- Download and Install [MCUXpresso IDE 2.19.0 or newer](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE?&tid=vanMCUXPRESSO/IDE) and Install following the installer instructions.
+- Download and Install [MCXUpresso SDK 2.14.0 for FRDM-MCXN947](https://mcuxpresso.nxp.com/en/builder?hw=FRDM-MCXN947) OR
 - Install Git v2.39.0 (for cloning and running west commands)
-- RealTerm (for checking examples output)
+- Download and Install [RealTerm (for checking examples output)](https://osdn.net/projects/ttssh2/releases/)
 
 ### 3.2 Step 2: Clone the APP-CODE-HUB/dm-mpl3115-pressure-altimeter-examples
 - Clone this repository to get the example projects:
@@ -62,7 +62,7 @@ on earth.
 
 ### 3.3 Step 3: Build example projects
 - Open MCUXpresso IDE and select a directory to create your workspace.
-- Install MCXUpresso SDK 2.13.1 for MCX (drag and drop SDK zip into "Installed SDK" view) into MCUXpresso IDE.
+- Install "MCXUpresso SDK 2.14.0 for FRDM-MCXN947" (drag and drop SDK zip into "Installed SDK" view) into MCUXpresso IDE.- Go to "Quickstart Panel" and click on "Import Project(s) from file system",
 - Go to "Quickstart Panel" and click on "Import Project(s) from file system",
 - Select "Project directory (unpacked)" and browse to the cloned project folder.
 - Select example projects that you want to open and run.
@@ -139,4 +139,3 @@ Questions regarding the content/correctness of this example can be entered as Is
 |:-------:|------------------------------------------------|----------------------------:|
 | 1.0     | Initial release on Application Code Hub        | February 10<sup>th</sup> 2024 |
 
-# dm-mpl3115-pressure-altimeter-examples

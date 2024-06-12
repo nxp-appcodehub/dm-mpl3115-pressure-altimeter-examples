@@ -5,7 +5,7 @@
  * Generated linker script file for MCXN947
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.9.0_prc1 [Build 2089] [2023-11-02] on Apr 1, 2024, 7:58:45 PM
+ * MCUXpresso IDE v11.9.1 [Build 2170] [2024-04-19] on Jun 11, 2024, 3:59:59 PM
  */
 
 INCLUDE "frdmmcxn947_mpl3115_shield_altitude_Debug_library.ld"
